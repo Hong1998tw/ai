@@ -1,0 +1,22 @@
+name: MCP E2E Actions Test
+
+on:
+  push:
+    branches:
+      - mcp-e2e-20260910-0434
+  workflow_dispatch:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create artifact payload
+        run: |
+          echo 'GitHub MCP E2E artifact' > mcp-e2e-artifact.txt
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mcp-e2e-artifact
+          path: mcp-e2e-artifact.txt
+      - name: Intentional failure for rerun testing
+        run: exit 1
