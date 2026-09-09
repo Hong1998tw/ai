@@ -1,0 +1,2 @@
+GitHub MCP low-level Git object test
+Created via create_blob
